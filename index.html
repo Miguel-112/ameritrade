@@ -96,18 +96,21 @@
     <script>
         function calcular() {
             var numeroUsuario = document.getElementById('numeroUsuario').value;
-            var resultado = Math.round(numeroUsuario * 1.35 * 10) / 10;
-            var resultado2 = resultado + 0.2;
-            var resultadoRedondeado = parseFloat(resultado2.toFixed(1));
+            var resultado = numeroUsuario * 1.35;
+
+            var resultado2 = resultado ;
+            
+
+            var resultadoRedondeado = parseFloat(resultado2.toFixed(2));
             document.getElementById('resultado').style.color = 'green';
             document.getElementById('resultado').innerText = 'El resultado del 35% + los dos dolares es: ' + resultadoRedondeado;
         }
 
         function calcular2() {
             var numeroUsuario = document.getElementById('numeroUsuario2').value;
-            var resultado = Math.round(numeroUsuario * 1.50 * 10) / 10;
-            var resultado2 = resultado + 0.2;
-            var resultadoRedondeado = parseFloat(resultado2.toFixed(1));
+            var resultado = (numeroUsuario * 1.50);
+            var resultado2 = resultado ;
+            var resultadoRedondeado = parseFloat(resultado2.toFixed(2));
             document.getElementById('resultado').style.color = 'red';
             document.getElementById('resultado').innerText = 'El resultado del 50% + los dos dolares es: ' + resultadoRedondeado;
         }
@@ -120,7 +123,8 @@
     <div style="display: flex; flex-direction: column; align-items: center;">
         <div class="form-group">
             <label for="">Ingrese el valor , para calcularrentabilidad al 35%</label>
-            <input type="number" id="numeroUsuario" class="form-control" placeholder="Ingresa el valor para calcular al 35%">
+            <input type="number" id="numeroUsuario" class="form-control"
+                placeholder="Ingresa el valor para calcular al 35%">
         </div> <br>
         <button class="btn btn-primary" onclick="calcular()">Calcular</button><br>
         <p id="resultado"></p>
@@ -129,7 +133,8 @@
     <div style="display: flex; flex-direction: column; align-items: center;">
         <div class="form-group">
             <label for="">Ingrese el valor , para calcularrentabilidad al 50%</label>
-            <input type="number" id="numeroUsuario2" class="form-control" placeholder="Ingresa el valor para calcular al 50%">
+            <input type="number" id="numeroUsuario2" class="form-control"
+                placeholder="Ingresa el valor para calcular al 50%">
         </div> <br>
         <button class="btn btn-primary" onclick="calcular2()">Calcular</button><br>
         <p id="resultado"></p>
