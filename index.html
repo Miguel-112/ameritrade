@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <style>
+        .table-yellow {
+            background-color: #F5F5DC !important;
+        }
+
+        .table-yellow td {
+            background-color: #F5F5DC !important;
+            border-color: black !important;
+        }
+    </style>
+
+    <table class="table table-bordered table-yellow">
+
+
+
+        <thead>
+            <tr>
+                <td colspan="3" style="text-align: center; font-weight: bold;">LISTA Y VERIFICACIÓN Y REQUISITOS ANTES
+                    DE <br> HACER TRADE </td>
+
+            </tr>
+            <tr>
+
+                <th scope="col">REQUISITOS</th>
+                <th scope="col">SE CUMPLE</th>
+                <th scope="col">NO SE CUMPLE</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+
+                <td>REUNION FED(1 VEZ POR MES) <br> Y EARNING (CADA 3 MESES) </td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+
+            </tr>
+
+            <tr>
+
+                <td>BOLLIGER 15M, HORA Y DÍA</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+
+            </tr>
+
+            <tr>
+
+                <td>PROMEDIOS MÓVILES HORRA Y DÍA</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+
+            </tr>
+
+            <tr>
+
+                <td>PUNTO DE RUPTURA DE LÍNEAS <br> DE TENDENCIA</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+
+            </tr>
+
+            <tr>
+
+                <td>SALTO(GAP) AL ALZA O <br> SALTO(GAP) A LA BAJA</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+
+            </tr>
+
+            <tr>
+
+                <td>Precio <br> BID & ASK <br> FECHA DE EXPIRACIÓN</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+
+            </tr>
+
+        </tbody>
+    </table>
+
+    <script>
+        function calcular() {
+            var numeroUsuario = document.getElementById('numeroUsuario').value;
+            var resultado = Math.round(numeroUsuario * 1.35 * 10) / 10;
+            var resultado2 = resultado + 0.2;
+            var resultadoRedondeado = parseFloat(resultado2.toFixed(1));
+            document.getElementById('resultado').style.color = 'green';
+            document.getElementById('resultado').innerText = 'El resultado del 35% + los dos dolares es: ' + resultadoRedondeado;
+        }
+
+        function calcular2() {
+            var numeroUsuario = document.getElementById('numeroUsuario2').value;
+            var resultado = Math.round(numeroUsuario * 1.50 * 10) / 10;
+            var resultado2 = resultado + 0.2;
+            var resultadoRedondeado = parseFloat(resultado2.toFixed(1));
+            document.getElementById('resultado').style.color = 'red';
+            document.getElementById('resultado').innerText = 'El resultado del 50% + los dos dolares es: ' + resultadoRedondeado;
+        }
+
+
+
+    </script>
+
+
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <div class="form-group">
+            <label for="">Ingrese el valor , para calcularrentabilidad al 35%</label>
+            <input type="number" id="numeroUsuario" class="form-control" placeholder="Ingresa el valor para calcular al 35%">
+        </div> <br>
+        <button class="btn btn-primary" onclick="calcular()">Calcular</button><br>
+        <p id="resultado"></p>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <div class="form-group">
+            <label for="">Ingrese el valor , para calcularrentabilidad al 50%</label>
+            <input type="number" id="numeroUsuario2" class="form-control" placeholder="Ingresa el valor para calcular al 50%">
+        </div> <br>
+        <button class="btn btn-primary" onclick="calcular2()">Calcular</button><br>
+        <p id="resultado"></p>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+
+        </script>
+
+
+
+</body>
+
+</html>
