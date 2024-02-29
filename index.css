@@ -10,3 +10,68 @@
 .m-t-5{
     margin: 5rem;
 }
+
+
+#resultado {
+    background-color: #bbff00; /* Color de fondo verde */
+    color: #000000; /* Color del texto negro para contraste */
+    font-size: 20px; /* Tamaño de fuente grande para destacar */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #000000; /* Borde para definir el área del texto */
+    margin-top: 10px; /* Espaciado entre el campo de entrada y el resultado */
+    text-align: center; /* Centrar el texto dentro del elemento */
+}
+
+
+
+
+#resultado2 {
+    background-color: #fff700; /* Color de fondo verde */
+    color: #000000; /* Color del texto negro para contraste */
+    font-size: 20px; /* Tamaño de fuente grande para destacar */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #000000; /* Borde para definir el área del texto */
+    margin-top: 10px; /* Espaciado entre el campo de entrada y el resultado */
+    text-align: center; /* Centrar el texto dentro del elemento */
+}
+
+
+#resultado3 {
+    background-color: #bbff00; /* Color de fondo verde */
+    color: #000000; /* Color del texto negro para contraste */
+    font-size: 20px; /* Tamaño de fuente grande para destacar */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #000000; /* Borde para definir el área del texto */
+    margin-top: 10px; /* Espaciado entre el campo de entrada y el resultado */
+    text-align: center; /* Centrar el texto dentro del elemento */
+}
+
+#resultado4 {
+    background-color: #fff700; /* Color de fondo verde */
+    color: #000000; /* Color del texto negro para contraste */
+    font-size: 20px; /* Tamaño de fuente grande para destacar */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #000000; /* Borde para definir el área del texto */
+    margin-top: 10px; /* Espaciado entre el campo de entrada y el resultado */
+    text-align: center; /* Centrar el texto dentro del elemento */
+}
+
+#resultado5 {
+    background-color: #bbff00; /* Color de fondo verde */
+    color: #000000; /* Color del texto negro para contraste */
+    font-size: 20px; /* Tamaño de fuente grande para destacar */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #000000; /* Borde para definir el área del texto */
+    margin-top: 10px; /* Espaciado entre el campo de entrada y el resultado */
+    text-align: center; /* Centrar el texto dentro del elemento */
+    animation: blink 1s infinite; /* Aplicar la animación blink */
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+
+

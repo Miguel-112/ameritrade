@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Refuerzo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+
+
+    <div style="margin-top: 10 rem;" id="iwm">
+
+        <div id="menu"></div>
+        <script>
+            fetch('menu.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('menu').innerHTML = data;
+                });
+        </script>
+
+
+    </div>
+
+
+    <table class="table table-bordered table-yellow">
+
+        <thead class="m-t-5">
+            <tr>
+                <td colspan="3" style="text-align: center; font-weight: bold;">Refuerzos</td>
+
+            </tr>
+            <tr>
+
+                <th scope="col">Datos</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+
+
+            <tr>
+                <td>
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="cantidadContratoInicial"
+                            placeholder="Precio de compra inicial" oninput="multiplicar()" min="0" required>
+                        <label for="cantidadContratoInicial">Cantidad de contratos Inicial</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="precioCompraInicial"
+                            placeholder="Precio de compra inicial" oninput="multiplicar()" min="0" required>
+                        <label for="precioCompraInicial">Precio de Compra Inicial de los Contratos</label>
+                    </div>
+
+                    <p id="resultado"></p>
+                    <!-- ------------------------------------------------------------------------------------------ -->
+
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="precioRefuerzo"
+                            placeholder="Precio de compra inicial" oninput="multiplicar()" min="0" required>
+                        <label for="precioRefuerzo">Precio de los Contratos a la hora de hacer el refuerzo</label>
+                    </div>
+
+                    <p id="resultado2"></p>
+                    <p id="resultado3"></p>
+                    <p id="resultado4"></p>
+                    <p id="resultado5"></p>
+                </td>
+            </tr>
+
+
+            <script>
+
+
+
+
+
+
+
+
+                function multiplicar() {
+                    var cantidad_contracto_inicial = parseInt(document.getElementById("cantidadContratoInicial").value);
+                    var precio_compra_inicial_contracto = parseFloat(document.getElementById("precioCompraInicial").value);
+                    var precio_refuerzo = parseFloat(document.getElementById("precioRefuerzo").value);
+
+                    var inversion_inicial = cantidad_contracto_inicial * precio_compra_inicial_contracto;
+                    var cantidad_de_contractos_comprar = inversion_inicial / precio_refuerzo;
+
+                    var inversion_total = (precio_refuerzo * cantidad_de_contractos_comprar) + inversion_inicial;
+
+                    console.log(cantidad_contracto_inicial);
+                    console.log(cantidad_de_contractos_comprar);
+
+                    var Promedio_quedo_precio = 0;
+
+                    Promedio_quedo_precio = (cantidad_contracto_inicial + cantidad_de_contractos_comprar);
+                    var precio_queda_total = inversion_total / Promedio_quedo_precio;
+                    var resultadoFormateado = precio_queda_total.toFixed(2);
+                    var precio_venta = parseFloat(resultadoFormateado) + 2;
+
+
+
+
+                    console.log(Promedio_quedo_precio);
+
+                    document.getElementById("resultado").innerHTML = "Inversion Inicial: " + (inversion_inicial !== inversion_inicial ? "Termine de llenar los campos por favor" : inversion_inicial);
+                    document.getElementById("resultado2").innerHTML = "Cantidad de contractos qué se deben comprar: " + (cantidad_de_contractos_comprar !== cantidad_de_contractos_comprar ? "Termine de llenar los campos por favor" : cantidad_de_contractos_comprar);
+                    document.getElementById("resultado3").innerHTML = "Inversión Total: " + (inversion_total !== inversion_total ? "Termine de llenar los campos por favor" : inversion_total);
+                    document.getElementById("resultado4").innerHTML = "Nuevo precio de los contractos sin comisión: " + (resultadoFormateado !== resultadoFormateado ? "Termine de llenar los campos por favor" : resultadoFormateado);
+                    document.getElementById("resultado5").innerHTML = "Nueva orden de venta con comisión para salir neutral: " + (precio_venta !== precio_venta ? "Termine de llenar los campos por favor" : precio_venta);
+
+
+
+
+                }
+
+            </script>
+
+
+
+
+        </tbody>
+    </table>
+
+
+    <div style="margin-top: 10 rem;" id="iwm">
+
+
+
+
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+
+        </script>
+
+
+
+</body>
+
+</html>
