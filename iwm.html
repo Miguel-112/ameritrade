@@ -31,7 +31,7 @@
     <table class="table table-bordered table-yellow">
         <thead class="m-t-5">
             <tr>
-                <td colspan="3" style="text-align: center; font-weight: bold;">LISTA DE PRECIO IWM 
+                <td colspan="3" style="text-align: center; font-weight: bold;">LISTA DE PRECIO IWM
                     <select id="multiplier">
                         <option value="1.10">10%</option>
                         <option value="1.15">15%</option>
@@ -39,12 +39,19 @@
                         <option value="1.35" selected>35%</option>
                     </select>
                 </td>
+
+                <td colspan="3" style="text-align: center; font-weight: bold;">Capital a invertir
+                    <input id="multiplierInput" type="number" value="0">
+                </td>
             </tr>
-            
+
+
+
             <tr>
                 <th scope="col">Precio</th>
                 <th scope="col">Precio + Porcentaje</th>
                 <th scope="col">Orden de venta</th>
+                <th scope="col">Numero de contractos a comprar</th>
             </tr>
         </thead>
         <tbody id="table-body"></tbody>
@@ -54,35 +61,66 @@
         document.addEventListener("DOMContentLoaded", function () {
             const tableBody = document.getElementById('table-body');
             const multiplierSelect = document.getElementById('multiplier');
-    
+
             function updateTable() {
                 if (tableBody && multiplierSelect) {
                     tableBody.innerHTML = '';
                     const multiplier = parseFloat(multiplierSelect.value);
+
+                    var multiplierint = localStorage.getItem('multiplierValue');
+
                     for (let i = 25; i <= 45; i++) {
                         const row = document.createElement('tr');
                         row.innerHTML = `
-                            <td>${i}</td>
-                            <td>${(i * multiplier).toFixed(2)}</td>
-                            <td>${(i * multiplier + 2).toFixed(2)}</td>
-                        `;
+                    <td>${i}</td>
+                    <td>${(i * multiplier).toFixed(2)}</td>
+                    <td>${(i * multiplier + 2).toFixed(2)}</td>
+                    <td>${(multiplierint / i).toFixed(1) < 1 ? 0 : (multiplierint / i).toFixed(1)}</td>
+                `;
                         tableBody.appendChild(row);
                     }
                 } else {
                     console.error("Element with id 'table-body' or 'multiplier' not found.");
                 }
             }
-    
+
             if (multiplierSelect) {
                 multiplierSelect.addEventListener('change', updateTable);
                 // Llamar a updateTable una vez al cargar la página
                 updateTable();
             }
+
+            // Escuchar el evento de cambio en el input y actualizar la tabla
+            document.getElementById('multiplierInput').addEventListener('input', function (event) {
+                // Almacenar el valor actualizado en localStorage
+                localStorage.setItem('multiplierValue', event.target.value);
+                // Actualizar la tabla inmediatamente
+                updateTable();
+            });
         });
+
+        
+        document.addEventListener('DOMContentLoaded', function () {
+            // Cargar el valor almacenado al cargar la página
+            var storedValue = localStorage.getItem('multiplierValue');
+            if (storedValue) {
+                document.getElementById('multiplierInput').value = storedValue;
+            }
+
+            // Escuchar el evento de cambio en el input
+            document.getElementById('multiplierInput').addEventListener('input', function (event) {
+                // Almacenar el valor actualizado en localStorage
+                localStorage.setItem('multiplierValue', event.target.value);
+            });
+            console.log('1');
+        });
+
+
+
     </script>
-    
-    
-    
+
+
+
 
 
     <div style="margin-top: 10 rem;" id="iwm">
