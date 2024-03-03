@@ -31,14 +31,20 @@
     <table class="table table-bordered table-yellow">
         <thead class="m-t-5">
             <tr>
-                <td colspan="3" style="text-align: center; font-weight: bold;">LISTA DE PRECIO IWM
+                <td colspan="3" style="text-align: center; font-weight: bold;">LISTA DE PRECIO
                     <select id="multiplier">
                         <option value="1.10">10%</option>
                         <option value="1.15">15%</option>
                         <option value="1.20">20%</option>
                         <option value="1.35" selected>35%</option>
                     </select>
+                    Seleccione una empresa:
+                    <select class="empresa" id="companySelect">
+                        <option value="appl" selected>Apple</option>
+                        <option value="tsla">Tsla</option>
+                        <option value="baba">BaBa</option>
                 </td>
+
 
                 <td colspan="3" style="text-align: center; font-weight: bold;">Capital a invertir
                     <input id="multiplierInput" type="number" value="0">
@@ -58,29 +64,50 @@
     </table>
 
     <script>
+
         document.addEventListener("DOMContentLoaded", function () {
             const tableBody = document.getElementById('table-body');
             const multiplierSelect = document.getElementById('multiplier');
+            const companySelect = document.getElementById('companySelect'); // Asegúrate de que este ID coincida con el de tu elemento select en el HTML
 
             function updateTable() {
-                if (tableBody && multiplierSelect) {
+                if (tableBody && multiplierSelect && companySelect) {
                     tableBody.innerHTML = '';
                     const multiplier = parseFloat(multiplierSelect.value);
-
                     var multiplierint = localStorage.getItem('multiplierValue');
 
-                    for (let i = 25; i <= 45; i++) {
+                    // Determina los límites del bucle for basados en la opción seleccionada
+                    let startRange, endRange;
+                    switch (companySelect.value) {
+                        case 'appl':
+                            startRange = 35;
+                            endRange = 75;
+                            break;
+                        case 'tsla':
+                            startRange = 65;
+                            endRange = 190;
+                            break;
+                        case 'baba':
+                            startRange = 25;
+                            endRange = 70;
+                            break;
+                        default:
+                            startRange = 25;
+                            endRange = 45; // Valores por defecto si no se selecciona ninguna opción
+                    }
+
+                    for (let i = startRange; i <= endRange; i++) {
                         const row = document.createElement('tr');
                         row.innerHTML = `
                     <td>${i}</td>
                     <td>${(i * multiplier).toFixed(2)}</td>
                     <td>${(i * multiplier + 2).toFixed(2)}</td>
                     <td>${(multiplierint / i) < 1 ? 0 : (multiplierint / i).toFixed(0)}</td>
-                `;
+`;
                         tableBody.appendChild(row);
                     }
                 } else {
-                    console.error("Element with id 'table-body' or 'multiplier' not found.");
+                    console.error("Element with id 'table-body', 'multiplier', or 'companySelect' not found.");
                 }
             }
 
@@ -97,9 +124,13 @@
                 // Actualizar la tabla inmediatamente
                 updateTable();
             });
+
+            // Asegúrate de llamar a updateTable también cuando se cambie la selección en companySelect
+            if (companySelect) {
+                companySelect.addEventListener('change', updateTable);
+            }
         });
 
-        
         document.addEventListener('DOMContentLoaded', function () {
             // Cargar el valor almacenado al cargar la página
             var storedValue = localStorage.getItem('multiplierValue');
@@ -114,6 +145,15 @@
             });
             console.log('1');
         });
+
+
+
+
+
+
+
+
+
 
 
 

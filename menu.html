@@ -10,25 +10,43 @@
             <a class="nav-link active" aria-current="page" href="./iwm.html">strike IWM</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="">strike General</a>
+            <a class="nav-link active" aria-current="page" href="./general.html">strike General</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="./refuerzo.html">Refuerzos</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
+          
           
         </ul>
         
       </div>
     </div>
   </nav>
+
+
+  <script>
+$(document).ready(function() {
+ // Obtén la URL actual
+ var currentUrl = window.location.href;
+
+ // Busca el enlace que corresponde a la URL actual y agrega la clase .active
+ $('.navbar-nav .nav-link').each(function() {
+    var linkHref = $(this).attr('href');
+    if (currentUrl.includes(linkHref)) {
+      $(this).addClass('active');
+    } else {
+      $(this).removeClass('active');
+    }
+ });
+
+ // Al hacer clic en un elemento del menú de navegación,
+ // se elimina la clase .active de todos los elementos y se agrega al elemento clickeado
+ $('.navbar-nav .nav-link').on('click', function() {
+    $('.navbar-nav .nav-link').removeClass('active'); // Elimina la clase .active de todos los elementos
+    $(this).addClass('active'); // Agrega la clase .active al elemento clickeado
+ });
+});
+
+
+
+  </script>
