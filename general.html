@@ -40,9 +40,19 @@
                     </select>
                     Seleccione una empresa:
                     <select class="empresa" id="companySelect">
+                        <option value="spy" selected>SPY</option>
+                        <option value="qqq" selected>QQQ</option>
+                        <option value="dia" selected>IWM</option>
+                        <option value="iwm" selected>DIA</option>
                         <option value="appl" selected>Apple</option>
                         <option value="tsla">Tsla</option>
                         <option value="baba">BaBa</option>
+                        <option value="amazon">Amazon</option>
+                        <option value="meta">Meta</option>
+                        <option value="amd">AMD</option>
+                        <option value="mu">MU</option>
+                        <option value="nvda">NVDA</option>
+
                 </td>
 
 
@@ -79,17 +89,53 @@
                     // Determina los límites del bucle for basados en la opción seleccionada
                     let startRange, endRange;
                     switch (companySelect.value) {
+                        case 'spy':
+                            startRange = 23;
+                            endRange = 34;
+                            break;
+                        case 'qqq':
+                            startRange = 36;
+                            endRange = 65;
+                            break;
+                        case 'dia':
+                            startRange = 40;
+                            endRange = 65;
+                            break;
+                        case 'iwm':
+                            startRange = 25;
+                            endRange = 455;
+                            break;
                         case 'appl':
                             startRange = 35;
                             endRange = 75;
                             break;
                         case 'tsla':
-                            startRange = 65;
-                            endRange = 190;
+                            startRange = 85;
+                            endRange = 145;
                             break;
                         case 'baba':
                             startRange = 25;
                             endRange = 70;
+                            break;
+                        case 'amazon':
+                            startRange = 35;
+                            endRange = 85;
+                            break;
+                        case 'meta':
+                            startRange = 65;
+                            endRange = 140;
+                            break;
+                        case 'amd':
+                            startRange = 80;
+                            endRange = 145;
+                            break;
+                            case 'mu':
+                            startRange = 35;
+                            endRange = 85;
+                            break;
+                            case 'nvda':
+                            startRange = 95;
+                            endRange = 170;
                             break;
                         default:
                             startRange = 25;
